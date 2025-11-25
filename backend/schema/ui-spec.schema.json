@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Spec",
+  "type": "object",
+  "required": ["type"],
+  "properties": {
+    "type": { "type": "string", "enum": ["Container","Row","Column","Text","Image","Card","TextInput","Button","List","Form"] },
+    "props": { "type": "object", "additionalProperties": true },
+    "layout": {
+      "type": "object",
+      "properties": {
+        "direction": { "type": "string", "enum": ["row","column"] },
+        "padding": { "type": "number" },
+        "gap": { "type": "number" },
+        "align": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "children": {
+      "type": "array",
+      "items": { "$ref": "#" }
+    }
+  },
+  "additionalProperties": false
+}
